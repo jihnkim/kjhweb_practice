@@ -1,29 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <style>
 
-        .testing{
-            background-color: yellow;
-            height : 48px;
-            width: 48px;
-            border-radius: .5rem;
-            margin: 1rem;
-        }
-
-    </style>
-    <div style="height: 20rem;
-         background-color: #1E1E1E;
-         border-radius: 1rem;
-         margin: 2rem;
-         overflow: scroll">
-        <h1 style="color: burlywood;
+    <div style="margin: 2rem; text-align: center;">
+        <h1 style="color: lightgray;
             font-family: 'Annie Use Your Telescope', cursive;">
-        WELCOME TO JHN WEB~!
+            what
         </h1>
-    <div class = "testing" style="display: inline-block">inline-block</div>
-    <div class = "testing" style="display: inline-block; width: 3rem; height: 3rem">inline-block</div>
-    <div class = "testing" style="display: inline-block; width: 3em; height: 3em">inline-block</div>
-    <div class = "testing" style="display: inline-block; width: 30%; height: 30%">inline-block</div>
+
+        <form action="/accounts/hello_world/" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3 w-50 m-auto">
+                <input type="text" class="form-control"
+                       name="hello_world_input">
+                <button class="btn btn-dark" type="submit">
+                    button
+                </button>
+                </div>
+        </form>
+
+
+        {% if hello_world_list %}
+            {% for hello_world in hello_world_list %}
+                <h3 class="web_header_logo">{{ hello_world.text }}</h3>
+            {% endfor %}
+        {% endif %}
+
     </div>
+
 {% endblock %}

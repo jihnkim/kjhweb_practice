@@ -1,11 +1,31 @@
 <div style="text-align: center">
     <div class="web_header_logo">
-        <h1 style="font-size: 98px">WEB PRACTICE</h1>
+        <h1 style="font-size: 72px">Puppy World</h1>
     </div>
     <div class="web_header_btn">
-        <span>nav1</span> |
-        <span>nav2</span> |
-        <span>nav3</span> |
-        <span>nav4</span> |
+        <span style="font-family: 'Annie Use Your Telescope', cursive">Walf</span> |
+        <span style="font-family: 'Annie Use Your Telescope', cursive">Meow</span> |
+
+        {% if not user.is_authenticated %}
+
+        <span style="font-family: 'Annie Use Your Telescope', cursive">
+            <a href="{% url 'accountapp:login' %}">
+                Login
+            </a>
+        </span> |
+        <span style="font-family: 'Annie Use Your Telescope', cursive">
+            <a href="{% url 'accountapp:create' %}">
+                Join
+            </a>
+        </span>
+
+        {% else %}
+
+        <span>
+            <a href="{% url 'accountapp:logout' %}">
+                logout
+            </a>
+        </span>
+        {% endif %}
     </div>
 </div>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{# Load the tag library #}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div class="text-center mw-500 m-auto">
+        <div class="m-5">
+            <h4 class="web_header_logo">Login</h4>
+        </div>
+        <div style="font-family: 'Annie Use Your Telescope', cursive">
+            {#  로그인 페이지로 요청 보냄  #}
+            <form action="{% url 'accountapp:login' %}" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <div class="m-5">
+                    <input type="submit" value="submit"
+                           class="btn btn-dark rounded-pill px-5">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}
