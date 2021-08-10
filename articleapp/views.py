@@ -10,6 +10,8 @@ from django.views.generic.edit import FormMixin
 from articleapp.decorators import article_ownership_required
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
+from commentapp.forms import CommentCreationForm
+
 
 @method_decorator(login_required, 'get')
 @method_decorator(login_required, 'post')
@@ -28,6 +30,7 @@ class ArticleCreateView(CreateView):
 
 class ArticleDetailView(DetailView, FormMixin):
     model = Article
+    form_class = CommentCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
 
@@ -55,4 +58,4 @@ class ArticleListView(ListView):
     model = Article
     context_object_name = 'article_list' # 객체들의 리스트
     template_name = 'articleapp/list.html'
-    paginate_by = 1
+    paginate_by = 20
