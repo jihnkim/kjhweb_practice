@@ -84,3 +84,7 @@ __pycache__/
 media/
 
 staticfiles/
+
+kjhweb_gcp
+kjhweb_gcp.pub
+Dockerfile
